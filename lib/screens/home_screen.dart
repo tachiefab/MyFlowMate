@@ -1,30 +1,62 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:myflowmate/utils/colors.dart';
+import 'package:myflowmate/widgets/greeting_card.dart';
+import 'package:myflowmate/widgets/horizontal_date.dart';
+import 'package:myflowmate/widgets/my_appbar.dart';
+import 'package:easy_date_timeline/easy_date_timeline.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          // app bar
-          Image.asset("assets/icons/menstrual-cylce.png")
+      backgroundColor: AppColors.background,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+          ),
+          child: Column(
+            children: [
+              // adding a space
+              SizedBox(
+                height: 15,
+              ),
 
-          // profile and welcome section
+              // app bar
+              MyAppbar(),
 
-          // scrolling month and year
+              SizedBox(
+                height: 15,
+              ),
 
-          // cards of date
+              // profile and welcome section
+              GreetingCard(),
 
-          // ovulation days in a big circle
+              // adding a sized box
 
-          // Daily insight cards
+              // scrolling month and year
+              HorizontalDate(),
 
-          // bottom bar navigation
-        ],
+              // cards of date
+
+              // ovulation days in a big circle
+
+              // Daily insight cards
+
+              // bottom bar navigation
+            ],
+          ),
+        ),
       ),
     );
   }
