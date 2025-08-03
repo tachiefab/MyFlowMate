@@ -4,6 +4,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myflowmate/utils/colors.dart';
+import 'package:myflowmate/widgets/daily_insight.dart';
 import 'package:myflowmate/widgets/greeting_card.dart';
 import 'package:myflowmate/widgets/horizontal_date.dart';
 import 'package:myflowmate/widgets/my_appbar.dart';
@@ -32,39 +33,87 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Gradient background
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFFFBE7EF), Color(0xFFE3B0DF)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFFFBE7EF), Color(0xFFE3B0DF)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
           ),
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: Column(
-              children: [
-                // App bar
-                Center(child: MyAppbar()),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Column(
+                children: [
+                  // App bar
+                  Center(child: MyAppbar()),
 
-                SizedBox(height: 18),
+                  SizedBox(height: 18),
 
-                // Greeting
-                GreetingCard(),
+                  // Greeting
+                  GreetingCard(),
 
-                SizedBox(height: 20),
+                  SizedBox(height: 20),
 
-                // Horizontal date picker
-                HorizontalDate(),
+                  // Horizontal date picker
+                  HorizontalDate(),
 
-                SizedBox(height: 20),
+                  SizedBox(height: 20),
 
-                // TODO: Ovulation tracker or calendar view
-                OvulationCircleAvatar()
+                  // TODO: Ovulation tracker or calendar view
+                  OvulationCircleAvatar(),
 
-                // TODO: Daily tips/insights
-              ],
+                  // adding a space
+                  SizedBox(height: 20),
+
+                  // Daily tips/insights
+                  SizedBox(
+                    height: 180,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        DailyInsight(
+                          title: "Share With Us",
+                          subtitle: "Your Day",
+                          gradientColors: [
+                            Color(0xFFFDECEF), // Soft Rose
+                            Color(0xFFF8C8DC), // Blush Pink
+                          ],
+                        ),
+                        SizedBox(width: 20),
+                        DailyInsight(
+                          title: "Your Daily",
+                          subtitle: "Insights",
+                          gradientColors: [
+                            Color(0xFFE5D4EF), // Lavender Mist
+                            Color(0xFFD1B3E0), // Pastel Purple
+                          ],
+                        ),
+                        SizedBox(width: 20),
+                        DailyInsight(
+                          title: "Track",
+                          subtitle: "Mood & Symptoms",
+                          gradientColors: [
+                            Color(0xFFFFE5D0), // Peach Cream
+                            Color(0xFFFFC4A3), // Soft Coral
+                          ],
+                        ),
+                        SizedBox(width: 20),
+                        DailyInsight(
+                          title: "Today's",
+                          subtitle: "Tip",
+                          gradientColors: [
+                            Color(0xFFD9F2EB), // Light Mint
+                            Color(0xFFA0E7D0), // Fresh Green
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
