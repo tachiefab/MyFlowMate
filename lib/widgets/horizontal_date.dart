@@ -10,7 +10,8 @@ class HorizontalDate extends StatefulWidget {
 }
 
 class _HorizontalDate extends State<HorizontalDate> {
-  DateTime _selectedDate = DateTime.now(); // <-- Add this
+  DateTime _selectedDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return EasyDateTimeLinePicker.itemBuilder(
@@ -24,20 +25,20 @@ class _HorizontalDate extends State<HorizontalDate> {
 
         return InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(100),
           child: Container(
-            width: 15,
-            height: 20,
-            margin: const EdgeInsets.symmetric(horizontal: 4),
+            width: 40,
+            height: 30,
+            margin: const EdgeInsets.symmetric(horizontal: 6),
             decoration: BoxDecoration(
-              color: isSelected ? AppColors.primary : Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(40),
+              color: isSelected ? AppColors.primary : Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(100),
               boxShadow: isSelected
                   ? [
                       BoxShadow(
-                        color: AppColors.primary.withOpacity(0.3),
-                        blurRadius: 8,
-                        offset: Offset(0, 3),
+                        color: AppColors.primary.withOpacity(0.25),
+                        blurRadius: 6,
+                        offset: Offset(0, 2),
                       )
                     ]
                   : [],
@@ -48,18 +49,18 @@ class _HorizontalDate extends State<HorizontalDate> {
                 Text(
                   dayName,
                   style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black54,
+                    fontSize: 10,
                     fontWeight: FontWeight.w500,
-                    fontSize: 14,
+                    color: isSelected ? Colors.white : Colors.black54,
                   ),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: 2),
                 Text(
                   "${date.day}",
                   style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black87,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    color: isSelected ? Colors.white : Colors.black87,
                   ),
                 ),
               ],
