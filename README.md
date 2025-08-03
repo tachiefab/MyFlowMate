@@ -70,7 +70,7 @@ lib/
 1. **Clone the project**
 
 ```bash
-git clone https://github.com/yourusername/myflowmate.git
+git clone https://github.com/tachiefab/myflowmate.git
 cd myflowmate
 
 
